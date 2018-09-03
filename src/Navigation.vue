@@ -34,8 +34,8 @@ export default {
       default: 8
     },
     useImageLabel: {
-        type: Boolean,
-        default: false
+      type: Boolean,
+      default: false
     },
     /**
      * Text content of the navigation next button
@@ -80,19 +80,19 @@ export default {
       this.$emit("navigationclick", direction);
     },
     getNextLabel() {
-        console.log(this.useImageLabel)
-        if(this.useImageLabel) {
-            return `<img src="${this.nextLabel}">`
-        } else {
-            return this.nextLabel
-        }
+      console.log(this.useImageLabel);
+      if (this.useImageLabel) {
+        return `<img src="${this.nextLabel}">`;
+      } else {
+        return this.nextLabel;
+      }
     },
     getPrevLabel() {
-        if(this.useImageLabel) {
-            return `<img src="${this.prevLabel}">`
-        } else {
-            return this.prevLabel
-        }
+      if (this.useImageLabel) {
+        return `<img src="${this.prevLabel}">`;
+      } else {
+        return this.prevLabel;
+      }
     }
   }
 };
