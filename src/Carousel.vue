@@ -24,6 +24,7 @@
       :clickTargetSize="navigationClickTargetSize"
       :nextLabel="navigationNextLabel"
       :prevLabel="navigationPrevLabel"
+      :useImageLabel="navigationUseImageLabel"
       @navigationclick="handleNavigation"/>
   </section>
 </template>
@@ -155,6 +156,13 @@ export default {
     navigationPrevLabel: {
       type: String,
       default: "&#9664"
+    },
+    /**
+     * Interpret navigation label as image location
+     */
+    navigationUseImageLabel: {
+      type: Boolean,
+      default: false
     },
     /**
      * The fill color of the active pagination dot

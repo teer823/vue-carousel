@@ -8,7 +8,7 @@
       v-on:click.prevent="triggerPageAdvance('backward')"
       v-bind:class="{ 'VueCarousel-navigation--disabled': !canAdvanceBackward }"
       v-bind:style="`padding: ${clickTargetSize}px; margin-right: -${clickTargetSize}px;`"
-      ><img src="./images/prev.svg"></button>
+      v-html="getPrevLabel()"></button>
     <button
       type="button"
       aria-label="Next page"
@@ -17,7 +17,7 @@
       v-on:click.prevent="triggerPageAdvance()"
       v-bind:class="{ 'VueCarousel-navigation--disabled': !canAdvanceForward }"
       v-bind:style="`padding: ${clickTargetSize}px; margin-left: -${clickTargetSize}px;`"
-      ><img src="./images/next.svg"></button>
+      v-html="getNextLabel()"></button>
   </div>
 </template>
 
@@ -32,6 +32,10 @@ export default {
     clickTargetSize: {
       type: Number,
       default: 8
+    },
+    useImageLabel: {
+        type: Boolean,
+        default: false
     },
     /**
      * Text content of the navigation next button
@@ -74,6 +78,21 @@ export default {
        * @type {string}
        */
       this.$emit("navigationclick", direction);
+    },
+    getNextLabel() {
+        console.log(this.useImageLabel)
+        if(this.useImageLabel) {
+            return `<img src="${this.nextLabel}">`
+        } else {
+            return this.nextLabel
+        }
+    },
+    getPrevLabel() {
+        if(this.useImageLabel) {
+            return `<img src="${this.prevLabel}">`
+        } else {
+            return this.prevLabel
+        }
     }
   }
 };

@@ -35,7 +35,7 @@ const createContainer = (createElement, width, content) => createElement(
       display: 'flex',
       justifyContent: 'center',
       marginTop: '40px',
-      backgroundColor: 'black'
+      // backgroundColor: 'black'
     }
   },
   [
@@ -114,7 +114,7 @@ play("Carousel", module)
     )
   )
   .add("With navigation buttons & without pagination", h => createContainer(
-      h, containerWidth, [h(Carousel, { props: { navigationEnabled: true, paginationEnabled: false } }, generateSlideImages(h))]
+      h, containerWidth, [h(Carousel, { props: { navigationEnabled: true, paginationEnabled: false, navigationUseImageLabel: true } }, generateSlideImages(h))]
     )
   )
   .add("Navigation buttons and scrollPerPage false", h => createContainer(
