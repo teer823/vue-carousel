@@ -672,7 +672,7 @@ export default {
       this.$refs["VueCarousel-wrapper"].addEventListener(
         this.isTouch ? "touchstart" : "mousedown",
         this.onStart,
-        {passive: true}
+        { passive: true }
       );
     }
 
