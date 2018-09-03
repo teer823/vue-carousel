@@ -8,7 +8,7 @@
       v-on:click.prevent="triggerPageAdvance('backward')"
       v-bind:class="{ 'VueCarousel-navigation--disabled': !canAdvanceBackward }"
       v-bind:style="`padding: ${clickTargetSize}px; margin-right: -${clickTargetSize}px;`"
-      v-html="prevLabel"></button>
+      ><img src="./images/prev.svg"></button>
     <button
       type="button"
       aria-label="Next page"
@@ -17,7 +17,7 @@
       v-on:click.prevent="triggerPageAdvance()"
       v-bind:class="{ 'VueCarousel-navigation--disabled': !canAdvanceForward }"
       v-bind:style="`padding: ${clickTargetSize}px; margin-left: -${clickTargetSize}px;`"
-      v-html="nextLabel"></button>
+      ><img src="./images/next.svg"></button>
   </div>
 </template>
 

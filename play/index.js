@@ -34,7 +34,8 @@ const createContainer = (createElement, width, content) => createElement(
       width: '100%',
       display: 'flex',
       justifyContent: 'center',
-      marginTop: '40px'
+      marginTop: '40px',
+      backgroundColor: 'black'
     }
   },
   [
@@ -112,6 +113,10 @@ play("Carousel", module)
       h, containerWidth, [h(Carousel, { props: { navigationEnabled: true } }, generateSlideImages(h))]
     )
   )
+  .add("With navigation buttons & without pagination", h => createContainer(
+      h, containerWidth, [h(Carousel, { props: { navigationEnabled: true, paginationEnabled: false } }, generateSlideImages(h))]
+    )
+  )
   .add("Navigation buttons and scrollPerPage false", h => createContainer(
       h, containerWidth, [h(Carousel, { props: { navigationEnabled: true, scrollPerPage: false } }, generateSlideImages(h))]
     )
@@ -127,7 +132,7 @@ play("Carousel", module)
   .add("With local event on pageChange", {
     template:
       `<div style="width: 100%; display: flex; justify-content: center; margin-top: 40px;">
-        <carousel style="width: 500px;" @pagechange="onPageChange">
+        <carousel style="width: 500px;" :perPage="3" @page-change="onPageChange">
           <slide v-for="slide in slides">
             <img style="width: 100%;" :src="slide" />
           </slide>
@@ -145,6 +150,7 @@ play("Carousel", module)
     methods: {
       onPageChange(currentPage) {
         this.$log(`page changed to ${currentPage}`)
+        console.log(`page changed to ${currentPage}`)
       },
     }
   })
@@ -240,7 +246,7 @@ play("Carousel", module)
     },
     methods: {
       handleTransitionEnd() {
-        alert('transition end!')
+        this.$log('transition end!')
       }
     }
   })

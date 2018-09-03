@@ -280,7 +280,7 @@ export default {
       }
     },
     currentPage(val) {
-      this.$emit("pageChange", val);
+      this.$emit("page-change", val);
       this.$emit("input", val);
     }
   },
