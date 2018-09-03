@@ -671,7 +671,8 @@ export default {
     if (this.isTouch || this.mouseDrag) {
       this.$refs["VueCarousel-wrapper"].addEventListener(
         this.isTouch ? "touchstart" : "mousedown",
-        this.onStart
+        this.onStart,
+        {passive: true}
       );
     }
 
