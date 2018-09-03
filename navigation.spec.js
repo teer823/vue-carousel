@@ -1,5 +1,5 @@
 const Vue = require('vue');
-const utils = require('../utils');
+const utils = require('./tests/client/utils');
 
 const Carousel = require('../../../src/Carousel.vue');
 const Slide = require('../../../src/Slide.vue');
