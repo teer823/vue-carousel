@@ -40,10 +40,6 @@ module.exports = {
         loader: 'babel',
         include: projectRoot,
         exclude: /node_modules/,
-      },
-      {
-        test: /\.svg$/,
-        loader: 'vue-svg-loader'
       }
     ]
   },
