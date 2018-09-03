@@ -80,7 +80,6 @@ export default {
       this.$emit("navigationclick", direction);
     },
     getNextLabel() {
-      console.log(this.useImageLabel);
       if (this.useImageLabel) {
         return `<img src="${this.nextLabel}">`;
       } else {
