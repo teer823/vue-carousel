@@ -25,8 +25,7 @@
           :style="`
             width: ${carousel.paginationSize}px;
             height: ${carousel.paginationSize}px;
-            background: ${isCurrentDot(index) ? carousel.paginationActiveColor : carousel.paginationColor};
-          `"
+            background: ${isCurrentDot(index) ? carousel.paginationActiveColor : carousel.paginationColor};`"
         ></button>
       </li>
     </ul>
@@ -39,9 +38,11 @@ export default {
   inject: ["carousel"],
   computed: {
     paginationCount() {
-      return this.carousel.scrollPerPage
-        ? this.carousel.pageCount
-        : this.carousel.slideCount - 2;
+      if (this.carousel.scrollPerPage && this.carousel.pageCount) {
+        return this.carousel.pageCount
+      } else if (this.carousel.slideCount) {
+         return this.carousel.slideCount - 2
+      }
     }
   },
   methods: {
