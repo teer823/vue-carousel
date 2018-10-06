@@ -528,7 +528,7 @@ export default {
     /* istanbul ignore next */
     onStart(e) {
       // alert("start");
-      console.log("start")
+      console.log("start");
       document.addEventListener(
         this.isTouch ? "touchend" : "mouseup",
         this.onEnd,
@@ -591,7 +591,7 @@ export default {
      * @param  {Object} e The event object
      */
     onDrag(e) {
-        console.log("drag")
+      console.log("drag");
       const eventPosX = this.isTouch ? e.touches[0].clientX : e.clientX;
       const eventPosY = this.isTouch ? e.touches[0].clientY : e.clientY;
       const newOffsetX = this.dragStartX - eventPosX;
@@ -681,7 +681,7 @@ export default {
     if (this.isTouch || this.mouseDrag) {
       this.$refs["VueCarousel-wrapper"].addEventListener(
         this.isTouch ? "touchstart" : "mousedown",
-        this.onStart/*,
+        this.onStart /*,
         { passive: true } */
       );
     }
