@@ -7,7 +7,7 @@
         role="presentation"
         :aria-selected="isCurrentDot(index) ? 'true' : 'false'"
         v-bind:class="{ 'VueCarousel-dot--active': isCurrentDot(index) }"
-        v-for="(page, index) in pagniationCount"
+        v-for="(page, index) in paginationCount"
         :key="`${page}_${index}`"
         v-on:click="goToPage(index)"
         :style="`
@@ -25,8 +25,7 @@
           :style="`
             width: ${carousel.paginationSize}px;
             height: ${carousel.paginationSize}px;
-            background: ${isCurrentDot(index) ? carousel.paginationActiveColor : carousel.paginationColor};
-          `"
+            background: ${isCurrentDot(index) ? carousel.paginationActiveColor : carousel.paginationColor};`"
         ></button>
       </li>
     </ul>
@@ -38,10 +37,12 @@ export default {
   name: "pagination",
   inject: ["carousel"],
   computed: {
-    pagniationCount() {
-      return this.carousel.scrollPerPage
-        ? this.carousel.pageCount
-        : this.carousel.slideCount - 2;
+    paginationCount() {
+      if (this.carousel.scrollPerPage && this.carousel.pageCount) {
+        return this.carousel.pageCount;
+      } else if (this.carousel.slideCount) {
+        return this.carousel.slideCount - 2;
+      }
     }
   },
   methods: {
